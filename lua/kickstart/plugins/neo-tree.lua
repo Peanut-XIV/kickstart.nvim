@@ -13,17 +13,25 @@ return {
   },
   lazy = false,
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>e', '<cmd>Neotree toggle=true<CR>', desc = 'NeoTree reveal', silent = true },
   },
   ---@module 'neo-tree'
   ---@type neotree.Config
   opts = {
+    close_if_last_window = true,
     filesystem = {
-      window = {
-        mappings = {
-          ['\\'] = 'close_window',
+      hijack_netrw_behavior = 'open_default',
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_hidden = false,
+        always_show = {
+          '.DS_Store',
         },
       },
+    },
+    window = {
+      position = 'right',
     },
   },
 }
